@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entity;
 use Illuminate\Http\Request;
 
 class EntityController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the entities.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $entities = Entity::all('id', 'name', 'email', 'phone', 'website');
+
+        return view('entities', ['entities' => $entities]);
     }
 
     /**
