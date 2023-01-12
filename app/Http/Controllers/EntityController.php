@@ -16,7 +16,7 @@ class EntityController extends Controller
     {
         $entities = Entity::all('id', 'name', 'email', 'phone', 'website');
 
-        return view('entities', ['entities' => $entities]);
+        return view('entity', ['entities' => $entities]);
     }
 
     /**

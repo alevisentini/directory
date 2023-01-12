@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+}) -> name('home');
 
-Route::get('/entities', 'App\Http\Controllers\EntityController@index');
+Route::get('/contact', function () {
+    return view('contact');
+}) -> name('contact');
+
+Route::get('/about', function () {
+    return view('about');
+}) -> name('about');
+
+Route::get('/entity', 'App\Http\Controllers\EntityController@index') -> name('entity');
