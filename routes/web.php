@@ -17,12 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 }) -> name('home');
 
-Route::get('/contact', function () {
-    return view('contact');
-}) -> name('contact');
+Route::get('/entities', 'App\Http\Controllers\EntityController@index');
 
-Route::get('/about', function () {
-    return view('about');
-}) -> name('about');
-
-Route::get('/entity', 'App\Http\Controllers\EntityController@index') -> name('entity');
+Route::get('contact-us', [ContactController::class, 'index']);
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');

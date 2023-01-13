@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;    
+use App\Mail\ContactMail;
 
-class EntityController extends Controller
+class ContactController extends Controller
 {
     /**
-     * Display a listing of the entities.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('entities', ['entities' => Entity::all('id', 'name', 'email', 'phone', 'website')]);
+        return view('contactForm');
     }
 
     /**
@@ -35,7 +36,18 @@ class EntityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10|numeric',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+        
+        Mail::to(env('MAIL_TO_ADDRESS'))->queue(new ContactMail($request));
+
+        return redirect()->back()
+            ->with(['success' => 'Thank you for contact us. we will contact you shortly.']);
     }
 
     /**
