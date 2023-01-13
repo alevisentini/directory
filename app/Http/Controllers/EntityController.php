@@ -14,7 +14,7 @@ class EntityController extends Controller
      */
     public function index()
     {
-        return view('entities', ['entities' => Entity::all('id', 'name', 'email', 'phone', 'website')]);
+        return view('entity', ['entities' => Entity::all('id', 'name', 'email', 'phone', 'website')]);
     }
 
     /**

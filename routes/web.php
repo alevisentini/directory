@@ -17,7 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 }) -> name('home');
 
-Route::get('/entities', 'App\Http\Controllers\EntityController@index');
+Route::get('/entities', 'App\Http\Controllers\EntityController@index') -> name('entity');
 
 Route::get('contact-us', [ContactController::class, 'index']);
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
+Route::get('/contact', function () {
+    return view('contact');
+}) -> name('contact');
