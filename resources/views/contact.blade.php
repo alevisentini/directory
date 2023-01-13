@@ -13,24 +13,24 @@
             <!-- CROSS Site Request Forgery Protection -->
             @csrf
             <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="name" id="name">
+                <div><label>Name</label></div>
+                <div><input type="text" class="form-control" name="name" id="name"></div>
             </div>
             <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" name="email" id="email">
+                <div><label>Email</label></div>
+                <div><input type="email" class="form-control" name="email" id="email"></div>
             </div>
             <div class="form-group">
-                <label>Phone</label>
-                <input type="text" class="form-control" name="phone" id="phone">
+                <div><label>Phone</label></div>
+                    <div><input type="text" class="form-control" name="phone" id="phone"></div>
             </div>
             <div class="form-group">
-                <label>Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject">
+                <div><label>Subject</label></div>
+                    <div><input type="text" class="form-control" name="subject" id="subject"></div>
             </div>
             <div class="form-group">
-                <label>Message</label>
-                <textarea class="form-control" name="message" id="message" rows="4"></textarea>
+                <div><label>Message</label></div>
+                    <div><textarea class="form-control" name="message" id="message" rows="4"></textarea></div>
             </div>
             <input type="submit" name="send" value="Submit" class="btn btn-dark btn-block">
         </form>
