@@ -45,8 +45,8 @@
 
         </tbody>
     </table>
-    
+
     {{-- here we have to implement pagination --}}
-    {{ $entities->render() }}
+    {{ $entities->appends($_GET)->links()}}
 
 </x-layouts.app>
