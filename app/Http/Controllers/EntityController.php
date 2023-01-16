@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Entity;
 use Illuminate\Http\Request;
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
+use RuntimeException;
 
 class EntityController extends Controller
 {
@@ -14,6 +16,8 @@ class EntityController extends Controller
      */
     public function index(Request $request)
     {
+        Bugsnag::notifyException(new RuntimeException("Test error"));
+        
         $name = $request->get('name');
         $email = $request->get('email');
         $phone = $request->get('phone');
