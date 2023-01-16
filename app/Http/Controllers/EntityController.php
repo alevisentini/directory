@@ -12,9 +12,19 @@ class EntityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('entity', ['entities' => Entity::all('id', 'name', 'email', 'phone', 'website')]);
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $phone = $request->get('phone');
+        
+        $entities = Entity::orderBy('name', 'ASC')
+            ->name($name)
+            ->email($email)
+            ->phone($phone)
+            ->paginate(10);
+
+        return view('entity', compact('entities'));
     }
 
     /**
