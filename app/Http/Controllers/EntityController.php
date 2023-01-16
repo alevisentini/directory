@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Entity;
 use Illuminate\Http\Request;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
-use RuntimeException;
+use Exception;
 
 class EntityController extends Controller
 {
@@ -16,17 +16,25 @@ class EntityController extends Controller
      */
     public function index(Request $request)
     {
-        Bugsnag::notifyException(new RuntimeException("Test error"));
-        
         $name = $request->get('name');
         $email = $request->get('email');
         $phone = $request->get('phone');
-        
-        $entities = Entity::orderBy('id', 'ASC')
-            ->name($name)
-            ->email($email)
-            ->phone($phone)
-            ->paginate(10);
+
+        try {
+            $entities = Entity::orderBy('id', 'ASC')
+                ->name($name)
+                ->email($email)
+                ->phone($phone)
+                ->paginate(10);
+        } catch (Exception $ex) {
+            Bugsnag::leaveBreadcrumb('Entity data', 'info', [
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'message' => $ex->getMessage()
+            ]);
+            Bugsnag::notifyException($ex);
+        }
 
         return view('entity', compact('entities'));
     }
