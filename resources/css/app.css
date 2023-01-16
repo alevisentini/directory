@@ -1,5 +1,11 @@
+body {
+    font-family: "DIN Next", sans-serif;
+    color: #364343;
+    line-height: 1.6;
+}
+
 .table, th, td {
-    border: 1px solid black;
+    border: 1px solid #f0f0f0;
 }
 
 .table {
@@ -11,7 +17,7 @@
     justify-content: center;
 }
 .w3-border {
-    border: 1px solid #4a5568;
+    border: 1px solid #f0f0f0;
 }
 .w3-grey {
     background-color: #2d3748;
@@ -39,10 +45,6 @@ form {
     margin-top: 20px;
 }
 
-label {
-    font-weight: 600;
-}
-
 .error {
     color: red;
     font-weight: 400;
@@ -54,4 +56,128 @@ label {
 .form-control.error {
     border-color: red;
     padding: .375rem .75rem;
+}
+
+/*Directory*/
+.card-container {
+    margin-top: 20px;
+    border: 1px solid #f0f0f0;
+    overflow: visible;
+    width: 100%;
+    padding: 0;
+    float: left;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0px 1px 2px #aaa;
+    position: relative;
+    margin: 20px 0 0 0;
+}
+
+.card-header {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-header-container {
+    display: flex;
+}
+
+.card-header-name {
+    font-weight: 400;
+}
+
+.card-header-profession {
+    color: #3c4951;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.vertically-separator {
+    border-right: 1px solid #f0f0f0;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.card-header-description {
+    display: flex;
+    justify-content: space-between;
+    color: #00bdbd;
+    cursor: pointer;
+    font-size: 14px;
+    padding-bottom: 10px;
+    font-weight: 400;
+}
+
+.card-body {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.card-body-picture {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://a.doctor.com/img?p=providers/c254fe632f6a5559203792f3f24993c0_screenshot-docs.google.com-2018.11.23-01-54-57.png&w=141');
+}
+
+.clip-star {
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 10px;
+    width: 15px;
+}
+
+.card-body-stadistic {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-body-stadistic div {
+    color: #00bdbd;
+    cursor: pointer;
+    font-size: 14px;
+    padding-bottom: 10px;
+    font-weight: 400;
+}
+
+.card-body-location {
+    max-width: 150px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.card-body-description-title {
+    color: #465259;
+    margin: 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 100 !important;
+    letter-spacing: 1px;
+}
+
+.card-body-description-subtitle {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 200;
+    color: #465259;
+}
+
+.card-footer {
+    border-top: 1px solid #f0f0f0;
+    padding: 20px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.card-footer button {
+    height: 40px;
+    background-color: #ffffff;
+    color: #364343;
+    border: 1px solid #364343;
+    border-radius: 2px;
+    cursor: pointer;
 }
