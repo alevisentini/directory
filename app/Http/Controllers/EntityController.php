@@ -18,7 +18,7 @@ class EntityController extends Controller
         $email = $request->get('email');
         $phone = $request->get('phone');
         
-        $entities = Entity::orderBy('name', 'ASC')
+        $entities = Entity::orderBy('id', 'ASC')
             ->name($name)
             ->email($email)
             ->phone($phone)

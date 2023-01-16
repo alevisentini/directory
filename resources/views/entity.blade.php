@@ -19,8 +19,8 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
-    {{-- here we have to implement pagination --}}
-    
+ 
+
     <table class="table table-sm">
         <thead>
         <tr>
@@ -45,6 +45,8 @@
 
         </tbody>
     </table>
-
+    
+    {{-- here we have to implement pagination --}}
+    {{ $entities->render() }}
 
 </x-layouts.app>
