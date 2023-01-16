@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Entity;
 use Illuminate\Http\Request;
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
+use Exception;
 
 class EntityController extends Controller
 {
@@ -12,9 +14,29 @@ class EntityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('entity', ['entities' => Entity::all('id', 'name', 'email', 'phone', 'website')]);
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $phone = $request->get('phone');
+
+        try {
+            $entities = Entity::orderBy('id', 'ASC')
+                ->name($name)
+                ->email($email)
+                ->phone($phone)
+                ->paginate(10);
+        } catch (Exception $ex) {
+            Bugsnag::leaveBreadcrumb('Entity data', 'info', [
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'message' => $ex->getMessage()
+            ]);
+            Bugsnag::notifyException($ex);
+        }
+
+        return view('entity', compact('entities'));
     }
 
     /**
