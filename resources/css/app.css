@@ -12,6 +12,10 @@ body {
     width: 100%;
 }
 
+.welcome-page {
+    margin: 60px
+}
+
 .welcome-page h4 {
     display: flex;
     justify-content: center;
@@ -60,7 +64,8 @@ form {
 
 /*Directory*/
 .card-container {
-    margin-top: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
     border: 1px solid #f0f0f0;
     overflow: visible;
     width: 100%;

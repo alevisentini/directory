@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-}) -> name('home');
+Route::get('/', [CompanyController::class, 'index']) -> name('home');
 
 Route::get('/entities', 'App\Http\Controllers\EntityController@index') -> name('entity');
 

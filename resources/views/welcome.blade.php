@@ -8,12 +8,14 @@
             <div class="w3-grey" style="height:24px;width:50%"></div>
         </div>
 
+        @foreach($companies as $company)
+
         <div class="card-container">
             <div class="card-header">
                 <div class="card-header-container">
-                        <label class="card-header-name">Luis Navarro</label>
+                        <label class="card-header-name">{{$company['name']}}</label>
                         <div class="vertically-separator"></div>
-                        <label class="card-header-profession">Surgeon - General</label>
+                        <label class="card-header-profession">{{$company['description']}}</label>
                 </div>
                 <div class="card-header-description">
                     <span>Sponsored</span>
@@ -24,10 +26,10 @@
                 <div class="card-body-picture"></div>
                 <div class="card-body-stadistic">
                     <div>
-                        <a>ProfilePoints 80/80</a>
+                        <a>ProfilePoints {{$company['profile_point']}}</a>
                     </div>
                     <div>
-                        <a>Avg. RatingL 5/5</a>
+                        <a>Avg. RatingL {{$company['rating']}}</a>
                     </div>
                     <div>
                         <div class="clip-star"></div>
@@ -43,8 +45,7 @@
                         <label>MAIN LOCATION</label>
                     </div>
                     <div class="card-body-description-subtitle">
-                        <label>327 East 65th Street
-                            New York, New York 10065</label>
+                        <label>{{$company['location']}}</label>
                     </div>
                 </div>
 
@@ -61,7 +62,7 @@
 
             <div class="card-footer">
                 <div>
-                    <label>(908) 897-0737</label>
+                    <label>{{$company['phone']}}</label>
                 </div>
                 <div>
                     <button>Request appointment</button>
@@ -71,5 +72,7 @@
             </div>
 
         </div>
+
+        @endforeach
     </div>
 </x-layouts.app>
