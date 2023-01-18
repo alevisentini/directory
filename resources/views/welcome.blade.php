@@ -5,21 +5,24 @@
             <div class="filter-container">
                 <div class="form-group">
                     <div><label>Name</label></div>
-                    <div><input type="text" class="form-control" id="name" name="name" placeholder="Enter name"></div>
+                    <div><input type="text" class="form-control" id="name" name="name" value="{{ Request::get('name') }}"
+                                placeholder="Enter name"></div>
                 </div>
                 <div class="form-group">
                     <div><label>Description</label></div>
-                    <div><input type="text" class="form-control" id="description" name="description" placeholder="Enter description"></div>
+                    <div><input type="text" class="form-control" id="description" name="description" value="{{ Request::get('description') }}"
+                                placeholder="Enter description"></div>
                 </div>
                 <div class="form-group">
                     <div><label>Location</label></div>
-                    <div><input type="text" class="form-control" id="location" name="location" placeholder="Enter location"></div>
+                    <div><input type="text" class="form-control" id="location" name="location" value="{{ Request::get('location') }}"
+                                placeholder="Enter location"></div>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </form>
 
-        @forelse($companies as $company)
+    @forelse($companies as $company)
 
         <div class="card-container">
             <div class="card-header">
