@@ -48,11 +48,10 @@ body {
     display: flex;
     justify-content: center;
 }
-.w3-border {
-    border: 1px solid #f0f0f0;
-}
-.w3-grey {
-    background-color: #2d3748;
+.no-data-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
 }
 
 /* Contact form */
@@ -284,6 +283,7 @@ form {
     border: none;
     background-color: #00bdbd;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .pagination {

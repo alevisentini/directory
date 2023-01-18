@@ -19,7 +19,7 @@
             </div>
         </form>
 
-        @foreach($companies as $company)
+        @forelse($companies as $company)
 
         <div class="card-container">
             <div class="card-header">
@@ -85,8 +85,13 @@
                 </div>
             </div>
         </div>
-        @endforeach
         {{ $companies->links('pagination.default') }}
+
+        @empty
+            <div class="no-data-container">
+                <label>No Search Results Found</label>
+            </div>
+        @endforelse
     </div>
 
 </x-layouts.app>
