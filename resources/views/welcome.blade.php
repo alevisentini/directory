@@ -1,12 +1,23 @@
 <x-layouts.app title="Home title" meta-description="Home description">
 
     <div class="welcome-page">
-        <h1>Home</h1>
-
-        <h4>Work in progress..</h4>
-        <div class="w3-border">
-            <div class="w3-grey" style="height:24px;width:50%"></div>
-        </div>
+        <form action="{{route('home')}}" method="get">
+            <div class="filter-container">
+                <div class="form-group">
+                    <div><label>Name</label></div>
+                    <div><input type="text" class="form-control" id="name" name="name" placeholder="Enter name"></div>
+                </div>
+                <div class="form-group">
+                    <div><label>Description</label></div>
+                    <div><input type="text" class="form-control" id="description" name="description" placeholder="Enter description"></div>
+                </div>
+                <div class="form-group">
+                    <div><label>Location</label></div>
+                    <div><input type="text" class="form-control" id="location" name="location" placeholder="Enter location"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
 
         @foreach($companies as $company)
 
@@ -68,11 +79,10 @@
                     <button>Request appointment</button>
                     <button>View Profile</button>
                 </div>
-
             </div>
-
         </div>
-
         @endforeach
+        {{ $companies->links('pagination.default') }}
     </div>
+
 </x-layouts.app>

@@ -12,11 +12,19 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-            $companies = Company::get();
-            return view('welcome', ['companies' => $companies]);
+        $name = $request->get('name');
+        $description = $request->get('description');
+        $location = $request->get('location');
+
+        $companies = Company::orderBy('id', 'ASC')
+            ->name($name)
+            ->description($description)
+            ->location($location)
+            ->paginate(10);
+
+            return view('welcome', compact('companies'));
     }
 
     /**

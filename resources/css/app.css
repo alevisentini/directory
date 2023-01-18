@@ -45,8 +45,17 @@ form {
     box-shadow: none;
 }
 
-.form-group {
-    margin-top: 20px;
+.form-group div  {
+    width: 300px;
+}
+
+.form-group div input {
+    width: 100%;
+}
+
+form {
+    background-color: #f4f8f8;
+    padding: 20px;
 }
 
 .error {
@@ -185,4 +194,32 @@ form {
     border: 1px solid #364343;
     border-radius: 2px;
     cursor: pointer;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-primary {
+    font-family: "DIN Next", sans-serif;
+    display: block;
+    text-indent: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    background-color: #00bdbd;
+    border-radius: 10px;
+}
+
+.pagination {
+    display: flex;
+}
+
+.pagination li {
+    margin-left: 36px;
 }
