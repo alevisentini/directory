@@ -1,7 +1,12 @@
 <nav>
-    <ul>
-        <li><a href="{{ route('home') }}">Home</a></li>
-        <li><a href="{{ route('contact') }}">Contact</a></li>
-        <li><a href="{{ route('entity') }}">Entities</a></li>
-    </ul>
+    <div class="nav-container">
+        <div class="nav-items">
+            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('contact') }}">Contact</a>
+            <a href="{{ route('entity') }}">Entities</a>
+        </div>
+        <div class="nav-log">
+            <label>Sign in</label>
+        </div>
+    </div>
 </nav>

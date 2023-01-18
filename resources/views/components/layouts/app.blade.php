@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css'])
 </head>
 <body>
-<h1>Directory</h1>
+
 <x-layouts.navigation />
 
 {{ $slot }}

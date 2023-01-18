@@ -34,7 +34,11 @@
             </div>
 
             <div class="card-body">
-                <div class="card-body-picture"></div>
+                <div class="card-body-picture">
+                    <div class="card-body-picture-container">
+                        <label>No image available</label>
+                    </div>
+                </div>
                 <div class="card-body-stadistic">
                     <div>
                         <a>ProfilePoints {{$company['profile_point']}}</a>

@@ -4,6 +4,34 @@ body {
     line-height: 1.6;
 }
 
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 60px;
+}
+
+.nav-items {
+    margin-right: 100px;
+}
+
+.nav-items a {
+    margin: 0 0 60px 60px;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    color: #364343;
+    padding: 7px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-log {
+    margin-right: 200px;
+}
+
 .table, th, td {
     border: 1px solid #f0f0f0;
 }
@@ -13,7 +41,7 @@ body {
 }
 
 .welcome-page {
-    margin: 60px
+    margin: 0 60px 60px 60px;
 }
 
 .welcome-page h4 {
@@ -51,6 +79,40 @@ form {
 
 .form-group div input {
     width: 100%;
+    position: relative;
+    height: 40px;
+    padding: 0 10px 0 10px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    outline: none;
+    color: #364343;
+    line-height: 40px;
+    font-size: 16px;
+    border-radius: 3px;
+    -webkit-transition: all, 200ms, ease;
+    -moz-transition: all, 200ms, ease;
+    -o-transition: all, 200ms, ease;
+    transition: all 200ms ease;
+}
+
+.form-group div input:focus {
+    z-index: 1;
+    border: 1px solid #00bdbd;
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 10%);
+    background: #fff;
+    font-size: 16px;
+}
+
+.form-group div label {
+    font-family: "DIN Next", sans-serif;
+    color: #364343;
+    display: block;
+    text-indent: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 form {
@@ -132,7 +194,15 @@ form {
 .card-body-picture {
     width: 100px;
     height: 100px;
-    background-image: url('https://a.doctor.com/img?p=providers/c254fe632f6a5559203792f3f24993c0_screenshot-docs.google.com-2018.11.23-01-54-57.png&w=141');
+    display: flex;
+    align-items: center;
+    border: 1px solid #e4e4e4;
+    border-radius: 2px;
+}
+
+.card-body-picture-container label {
+    font-size: 10px;
+    margin-left: 6px;
 }
 
 .clip-star {
