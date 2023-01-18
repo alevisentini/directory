@@ -19,7 +19,7 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
- 
+
 
     <table class="table table-sm">
         <thead>
@@ -47,6 +47,6 @@
     </table>
 
     {{-- here we have to implement pagination --}}
-    {{ $entities->appends($_GET)->links()}}
+    {{ $entities->render("pagination::default") }}
 
 </x-layouts.app>
