@@ -1,6 +1,6 @@
 <x-layouts.app title="Home title" meta-description="Home description">
 
-    <div class="welcome-page">
+    <div class="container-page">
         <form action="{{route('home')}}" method="get">
             <div class="filter-container">
                 <div class="form-group">
@@ -84,7 +84,7 @@
                 </div>
                 <div>
                     <button>Request appointment</button>
-                    <button onclick="window.location='{{ route('profile', ['id' => $company['id']]) }}'">View Profile</button>
+                    <button onclick="window.location='{{ route('profile', ['name' => $company['name']]) }}'">View Profile</button>
                 </div>
             </div>
         </div>

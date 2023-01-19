@@ -44,11 +44,11 @@ button {
     width: 100%;
 }
 
-.welcome-page {
+.container-page {
     margin: 0 60px 60px 60px;
 }
 
-.welcome-page h4 {
+.container-page h4 {
     display: flex;
     justify-content: center;
 }
