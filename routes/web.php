@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::get('/entities', 'App\Http\Controllers\EntityController@index') -> name('
 Route::get('/contact', [ContactController::class, 'index']) -> name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+Route::get('/profile/{id}', [ProfileController::class, 'index']) -> name('profile');

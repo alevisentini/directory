@@ -84,7 +84,7 @@
                 </div>
                 <div>
                     <button>Request appointment</button>
-                    <button>View Profile</button>
+                    <button onclick="window.location='{{ route('profile', ['id' => $company['id']]) }}'">View Profile</button>
                 </div>
             </div>
         </div>

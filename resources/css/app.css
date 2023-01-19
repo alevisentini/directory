@@ -4,6 +4,10 @@ body {
     line-height: 1.6;
 }
 
+button {
+    cursor: pointer;
+}
+
 .nav-container {
     display: flex;
     justify-content: flex-end;
@@ -292,4 +296,22 @@ form {
 
 .pagination li {
     margin-left: 36px;
+}
+
+.breadcrumb-container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 30px;
+    background: #f4f8f8;
+    padding: 20px;
+}
+
+.breadcrumb-container button {
+    background: transparent;
+    font-weight: 400;
+    text-transform: none;
+    color: #364343;
+    border: 1px solid #364343;
+    border-radius: 0;
+    padding: 15px 25px;
 }
