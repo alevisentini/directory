@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('location');
-            $table->string('phone');
-            $table->float('rating');
-            $table->float('profile_point');
+            $table->foreignId('id_business');
+            $table->string('share_value');
+            $table->integer('number_of_share');
+            $table->float('value_per_share');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('stocks');
     }
 };
