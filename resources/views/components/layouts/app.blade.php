@@ -10,8 +10,15 @@
 </head>
 <body>
 
-<x-layouts.navigation />
+<header>
+    <x-layouts.navigation />
+</header>
 
 {{ $slot }}
+
+<footer>
+    <x-layouts.footer />
+</footer>
+
 </body>
 </html>
