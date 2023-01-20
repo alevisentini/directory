@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_status');
-            $table->foreignId('id_filing');
-            $table->foreignId('id_activity');
-            $table->foreignId('id_type');
+            $table->foreignId('id_status')->references('id')->on('statuses');
+            $table->foreignId('id_activity')->references('id')->on('activities');
+            $table->foreignId('id_type')->references('id')->on('types');
             $table->string('name');
             $table->string('file_number');
             $table->string('foreign_legal_name');

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_business');
+            $table->foreignId('id_business')->references('id')->on('businesses');
             $table->string('name');
             $table->string('url');
             $table->string('date');

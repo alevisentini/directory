@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_business');
+            $table->foreignId('id_business')->references('id')->on('businesses');
             $table->string('share_value');
             $table->integer('number_of_share');
             $table->float('value_per_share');
