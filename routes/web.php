@@ -15,9 +15,7 @@ use App\Http\Controllers\CompanyController;
 |
 */
 
-Route::get('/', [CompanyController::class, 'index']) -> name('home');
-
-Route::get('/entities', 'App\Http\Controllers\EntityController@index') -> name('entity');
+Route::get('/', 'App\Http\Controllers\BusinessController@index') -> name('business');
 
 Route::get('/contact', [ContactController::class, 'index']) -> name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Business extends Model
 {
     use HasFactory;
+    
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+    ];
 
     public function status()
     {
@@ -32,6 +38,20 @@ class Business extends Model
     public function documents()
     {
         return $this->hasMany(Document::class);
+    }
+
+    public function scopeName($query, $name)
+    {
+        if ($name) {
+            return $query->where('name', 'LIKE', "%$name%");
+        }
+    }
+
+    public function scopeFeinEinNumber($query, $fein_ein_number)
+    {
+        if ($fein_ein_number) {
+            return $query->where('fein_ein_number', 'LIKE', "%$fein_ein_number%");
+        }
     }
 
 }

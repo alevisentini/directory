@@ -2,41 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Business;
 use App\Models\Entity;
 use Illuminate\Http\Request;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use Exception;
 
-class EntityController extends Controller
+class BusinessController extends Controller
 {
     /**
-     * Display a listing of the entities.
+     * Display a listing of businesses.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $name = $request->get('name');
-        $email = $request->get('email');
-        $phone = $request->get('phone');
+        $fein_ein_number = $request->get('fein_ein_number');
 
         try {
-            $entities = Entity::orderBy('id', 'ASC')
+            $businesses = Business::orderBy('id', 'ASC')
                 ->name($name)
-                ->email($email)
-                ->phone($phone)
+                ->feinEinNumber($fein_ein_number)
                 ->paginate(10);
+            return view('business', compact('businesses'));
         } catch (Exception $ex) {
             Bugsnag::leaveBreadcrumb('Entity data', 'info', [
                 'name' => $name,
-                'email' => $email,
-                'phone' => $phone,
+                'fein_ein_number' => $fein_ein_number,
                 'message' => $ex->getMessage()
             ]);
             Bugsnag::notifyException($ex);
         }
-
-        return view('entity', compact('entities'));
     }
 
     /**
