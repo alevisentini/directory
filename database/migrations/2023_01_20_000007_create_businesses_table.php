@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('id_status')->references('id')->on('statuses');
             $table->foreignId('id_activity')->references('id')->on('activities');
             $table->foreignId('id_type')->references('id')->on('types');
+            $table->foreignId('id_filing')->references('id')->on('filings');
             $table->string('name');
             $table->string('file_number');
             $table->string('foreign_legal_name');

@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('filing', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->date('initial_date');
-            $table->date('effective_date');
-            $table->date('last_evemt');
-            $table->date('event_date_filed');
-            $table->date('event_effective_date');
+            $table->foreignId('id_business')->references('id')->on('businesses');
+            $table->string('name');
+            $table->string('url');
+            $table->date('date');
+            $table->integer('cert_code');
+            $table->string('description');
+            $table->string('file_number');
+            $table->integer('page_count');
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filing');
+        Schema::dropIfExists('documents');
     }
 };
