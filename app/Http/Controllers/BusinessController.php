@@ -18,18 +18,21 @@ class BusinessController extends Controller
     public function index(Request $request)
     {
         $name = $request->get('name');
-        $fein_ein_number = $request->get('fein_ein_number');
+        $foreign_legal_name = $request->get('foreign_legal_name');
+        $fictitious_name = $request->get('fictitious_name');
 
         try {
             $businesses = Business::orderBy('id', 'ASC')
                 ->name($name)
-                ->feinEinNumber($fein_ein_number)
+                ->foreign_legal_name($foreign_legal_name)
+                ->fictitious_name($fictitious_name)
                 ->paginate(10);
             return view('business', compact('businesses'));
         } catch (Exception $ex) {
             Bugsnag::leaveBreadcrumb('Entity data', 'info', [
                 'name' => $name,
-                'fein_ein_number' => $fein_ein_number,
+                'foreign_legal_name' => $foreign_legal_name,
+                'fictitious_name' => $fictitious_name,
                 'message' => $ex->getMessage()
             ]);
             Bugsnag::notifyException($ex);

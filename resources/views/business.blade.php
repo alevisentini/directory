@@ -9,14 +9,14 @@
                                 placeholder="Enter name"></div>
                 </div>
                 <div class="form-group col-3">
-                    <div><label>Description</label></div>
-                    <div><input type="text" class="form-control" id="description" name="description" value="{{ Request::get('description') }}"
-                                placeholder="Enter description"></div>
+                    <div><label>Legal name</label></div>
+                    <div><input type="text" class="form-control" id="foreign_legal_name" name="foreign_legal_name" value="{{ Request::get('foreign_legal_name') }}"
+                                placeholder="Enter legal name"></div>
                 </div>
                 <div class="form-group col-3">
-                    <div><label>Location</label></div>
-                    <div><input type="text" class="form-control" id="location" name="location" value="{{ Request::get('location') }}"
-                                placeholder="Enter location"></div>
+                    <div><label>Fictitious name</label></div>
+                    <div><input type="text" class="form-control" id="fictitious_name" name="fictitious_name" value="{{ Request::get('fictitious_name') }}"
+                                placeholder="Enter fictitious name"></div>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
@@ -60,20 +60,19 @@
 
                     <div class="card-body-location">
                         <div class="card-body-description-title">
-                            <label>MAIN LOCATION</label>
+                            <label>LEGAL NAME</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <label>{{$business['location']}}</label>
+                            <label>{{$business['foreign_legal_name']}}</label>
                         </div>
                     </div>
 
                     <div class="card-body-highlights">
                         <div class="card-body-description-title">
-                            <label>HIGHLIGHTS</label>
+                            <label>Fictitious name</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <li>Board Certified</li>
-                            <li>Has Online Scheduling</li>
+                            <label>{{$business['fictitious_name']}}</label>
                         </div>
                     </div>
                 </div>
