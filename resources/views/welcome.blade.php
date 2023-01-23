@@ -1,19 +1,19 @@
 <x-layouts.app title="Home title" meta-description="Home description">
 
-    <div class="welcome-page">
+    <div class="container-page">
         <form action="{{route('home')}}" method="get">
             <div class="filter-container">
-                <div class="form-group">
+                <div class="form-group col-3">
                     <div><label>Name</label></div>
                     <div><input type="text" class="form-control" id="name" name="name" value="{{ Request::get('name') }}"
                                 placeholder="Enter name"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-3">
                     <div><label>Description</label></div>
                     <div><input type="text" class="form-control" id="description" name="description" value="{{ Request::get('description') }}"
                                 placeholder="Enter description"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-3">
                     <div><label>Location</label></div>
                     <div><input type="text" class="form-control" id="location" name="location" value="{{ Request::get('location') }}"
                                 placeholder="Enter location"></div>
@@ -83,8 +83,8 @@
                     <label>{{$company['phone']}}</label>
                 </div>
                 <div>
-                    <button>Request appointment</button>
-                    <button>View Profile</button>
+                    <button >Request appointment</button>
+                    <button onclick="window.location='{{ route('profile', ['name' => $company['name']]) }}'">View Profile</button>
                 </div>
             </div>
         </div>
