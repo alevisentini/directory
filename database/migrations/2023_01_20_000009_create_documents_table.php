@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('documents', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
             $table->string('name');
             $table->string('url');

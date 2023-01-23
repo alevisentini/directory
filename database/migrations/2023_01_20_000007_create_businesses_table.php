@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('businesses', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->foreignId('id_status')->references('id')->on('statuses');
             $table->foreignId('id_activity')->references('id')->on('activities');
             $table->foreignId('id_type')->references('id')->on('types');

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('stocks', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
             $table->string('share_value');
             $table->integer('number_of_share');

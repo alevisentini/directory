@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('filings', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->date('initial_date');
             $table->date('effective_date');
             $table->date('last_evemt');
