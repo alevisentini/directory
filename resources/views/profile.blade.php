@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
                 <div>
                     <i class="fa fa-home"></i>
-                    <a href="{{route('home')}}">HOME</a>
+                    <a href="/">HOME</a>
                 </div>
                 @for($i = 2; $i <= count(Request::segments()); $i++)
                     <div>
@@ -18,7 +18,7 @@
             </ol>
         </div>
         <div>
-            <button onclick="window.location='{{ route('home') }}'">Back to Results</button>
+            <button onclick="window.location='{{ url('/') }}'">Back to Results</button>
         </div>
     </div>
 
