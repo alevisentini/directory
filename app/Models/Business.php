@@ -40,6 +40,32 @@ class Business extends Model
         return $this->hasMany(Document::class);
     }
 
+    public function filing()
+    {
+        return $this->hasOne(Filing::class);
+    }
+
+    public function report()
+    {
+        return $this->hasMany(Report::class);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(Members::class);
+    }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function agent()
+    {
+        return $this->hasMany(Agent::class);
+    }
+
+
     public function scopeName($query, $name)
     {
         if ($name) {

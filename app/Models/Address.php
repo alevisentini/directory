@@ -13,4 +13,14 @@ class Address extends Model
     {
         return $this->belongsTo(Business::class);
     }
+
+    public function agent()
+    {
+        return $this->belongsTo(Agent::class);
+    }
+
+    public function members()
+    {
+        return $this->belongsTo(Members::class);
+    }
 }
