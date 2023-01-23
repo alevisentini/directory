@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
-            $table->foreignId('id_agent')->references('id')->on('agent');
+            $table->foreignId('id_agent')->references('id')->on('agents');
             $table->foreignId('id_members')->references('id')->on('members');
             $table->string('type');
             $table->string('street');
