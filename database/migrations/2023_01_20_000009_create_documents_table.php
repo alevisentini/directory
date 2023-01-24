@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
-            $table->string('name');
-            $table->string('url');
-            $table->date('date');
-            $table->integer('cert_code');
-            $table->string('description');
-            $table->string('file_number');
-            $table->integer('page_count');
+            $table->string('type')->nullable();
+            $table->string('url')->nullable();
+            $table->date('date')->nullable();
+            $table->integer('cert_code')->nullable();
+            $table->string('description')->nullable();
+            $table->string('file_number')->nullable();
+            $table->integer('page_count')->nullable();
             $table->timestamps();
         });
     }

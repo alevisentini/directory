@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
-            $table->date('filed_date');
-            $table->integer('year');
+            $table->date('filed_date')->nullable();
+            $table->integer('year')->nullable();
             $table->timestamps();
         });
     }

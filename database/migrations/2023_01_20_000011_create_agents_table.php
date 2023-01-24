@@ -17,12 +17,11 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
             $table->string('name');
-            $table->string('address');
-            $table->string('type');
-            $table->date('name_changed');
-            $table->string('phone');
-            $table->string('country');
-            $table->string('standig');
+            $table->string('type')->nullable();
+            $table->date('name_changed')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('county')->nullable();
+            $table->string('standing')->nullable();
             $table->timestamps();
         });
     }

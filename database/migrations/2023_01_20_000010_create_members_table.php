@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->foreignId('id_business')->references('id')->on('businesses');
             $table->string('name');
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

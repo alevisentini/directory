@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('filings', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->date('initial_date');
-            $table->date('effective_date');
-            $table->date('last_evemt');
-            $table->date('event_date_filed');
-            $table->date('event_effective_date');
+            $table->date('initial_date')->nullable();
+            $table->date('effective_date')->nullable();
+            $table->date('last_evemt')->nullable();
+            $table->date('event_date_filed')->nullable();
+            $table->date('event_effective_date')->nullable();
             $table->timestamps();
         });
     }

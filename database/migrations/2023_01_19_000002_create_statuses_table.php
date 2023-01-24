@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('name');
-            $table->string('statement_status');
-            $table->string('reason_for_status');
+            $table->string('statement_status')->nullable();
+            $table->string('reason_for_status')->nullable();
             $table->timestamps();
         });
     }
