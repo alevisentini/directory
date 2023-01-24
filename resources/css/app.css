@@ -4,6 +4,10 @@ body {
     line-height: 1.6;
 }
 
+button {
+    cursor: pointer;
+}
+
 .nav-container {
     display: flex;
     justify-content: flex-end;
@@ -40,11 +44,11 @@ body {
     width: 100%;
 }
 
-.welcome-page {
+.container-page {
     margin: 0 60px 60px 60px;
 }
 
-.welcome-page h4 {
+.container-page h4 {
     display: flex;
     justify-content: center;
 }
@@ -292,4 +296,108 @@ form {
 
 .pagination li {
     margin-left: 36px;
+}
+
+.breadcrumb-container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 30px;
+    background: #f4f8f8;
+    padding: 20px;
+}
+
+.breadcrumb-container button {
+    background: transparent;
+    font-weight: 400;
+    text-transform: none;
+    color: #364343;
+    border: 1px solid #364343;
+    border-radius: 0;
+    padding: 15px 25px;
+}
+
+.col-3 {width: 25%;}
+
+@media only screen and (max-width: 600px) {
+    .nav-container {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .nav-items a {
+        margin: 0px;
+    }
+
+    .filter-container {
+        display: block;
+    }
+
+    .filter-container div {
+        margin-top: 5px;
+    }
+
+    .filter-container button {
+        margin-top: 10px;
+    }
+
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .card-header-container {
+        display: block;
+    }
+
+    .card-body-stadistic {
+        margin-left: 30px;
+    }
+
+    .card-body-location {
+        display: none;
+    }
+
+    .card-body-highlights {
+        display: none;
+    }
+
+    .site-footer__sub {
+        display: block !important;
+    }
+
+    .site-footer__sub div {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1180px) {
+    .nav-container {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .nav-items a {
+        margin: 0px;
+    }
+
+
+    .filter-container {
+    }
+
+    .filter-container div {
+        margin-top: 5px;
+    }
+
+    .filter-container button {
+        margin-top: 10px;
+    }
+
+    .form-group div input {
+        width: 120px;
+    }
+
+    .site-footer__sub div {
+        display: block;
+        justify-content: center;
+    }
 }

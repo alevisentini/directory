@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Business extends Model
 {
     use HasFactory;
-    
+
     protected $guarded = [
         'id',
         'created_at',
@@ -40,6 +40,32 @@ class Business extends Model
         return $this->hasMany(Document::class);
     }
 
+    public function filing()
+    {
+        return $this->hasOne(Filing::class);
+    }
+
+    public function report()
+    {
+        return $this->hasMany(Report::class);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(Members::class);
+    }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
+
+    public function agent()
+    {
+        return $this->hasMany(Agent::class);
+    }
+
+
     public function scopeName($query, $name)
     {
         if ($name) {
@@ -47,10 +73,17 @@ class Business extends Model
         }
     }
 
-    public function scopeFeinEinNumber($query, $fein_ein_number)
+    public function scopeForeign_legal_name($query, $foreign_legal_name)
     {
-        if ($fein_ein_number) {
-            return $query->where('fein_ein_number', 'LIKE', "%$fein_ein_number%");
+        if ($foreign_legal_name) {
+            return $query->where('foreign_legal_name', 'LIKE', "%$foreign_legal_name%");
+        }
+    }
+
+    public function scopeFictitious_name($query, $fictitious_name)
+    {
+        if ($fictitious_name) {
+            return $query->where('fictitious_name', 'LIKE', "%$fictitious_name%");
         }
     }
 

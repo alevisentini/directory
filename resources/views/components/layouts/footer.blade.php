@@ -7,16 +7,15 @@
             <label>© 2023 Directory.com </label>
         </div>
         <div>
-            <a>Privacy</a>
-            <a>Terms of Service</a>
-            <a>Accessibility Statement</a>
+            <label>Privacy</label>
+            <label>Terms of Service</label>
+            <label>Accessibility Statement</label>
         </div>
     </div>
 </div>
 
 <style>
     .site-footer {
-        border-bottom: 1px solid #e3eded;
         padding: 100px 0 30px 0;
         height: auto;
         background: #fff;
@@ -46,5 +45,4 @@
     .site-footer__sub a {
         padding-right: 30px;
     }
-
 </style>
