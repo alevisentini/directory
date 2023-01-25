@@ -3,6 +3,8 @@
 ## Install dependencies
 1.  composer dependencies
     > composer install
+2. NPM dependencies
+    > npm install
 
 ## initial setup
 1. Create .env file
@@ -17,5 +19,10 @@
 1. Run all the migrations
     > php artisan migrate
 
+## Start local server
+1. Start Vite server
+    > npm run dev
+2. Start php server
+    > php artisan serve
 ## Aditional documentation
 1. Laravel documentation: https://laravel.com/docs/9.x/
