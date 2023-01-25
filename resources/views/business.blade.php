@@ -1,15 +1,16 @@
 <x-layouts.app title="Business title" meta-description="Business description">
 
     <div class="container-page">
-        <form action="{{route('business')}}" method="get">
+        <form action="{{route('business')}}" method="get" id="filter-form">
             <div class="filter-container">
                 <div class="form-group col-3">
                     <div><label>Name</label></div>
                     <div>
-                        <input type="text" name="name" id="name" class="form-control typeahead" value="{{ Request::get('name') }}"
-                               placeholder="Type name..." />
+                        <input type="text" name="name" id="name" class="form-control typeahead ui-autocomplete-input" value="{{ Request::get('name') }}"
+                               placeholder="Type name..." autocomplete="off" />
                     </div>
                 </div>
+
                 <div class="form-group col-3">
                     <div><label>Legal name</label></div>
                     <div><input type="text" class="form-control" id="foreign_legal_name" name="foreign_legal_name" value="{{ Request::get('foreign_legal_name') }}"
@@ -120,8 +121,22 @@
 <style>
     .typeahead {
         background-color: white;
-        width: 100%;
+        width: 320px;
+        overflow: hidden;
+        position: absolute;
+        cursor: default;
+        list-style-type: none;
+        padding: 5px 0 0 0;
+        margin: 0;
+        font-size: 14px;
+        font-size: 1.4rem;
+        border-radius: 3px;
+        z-index: 1;
+        border: 1px solid #364343;
+
     }
+
+
 
     .typeahead a {
         color: #364343;
@@ -132,6 +147,36 @@
         height: 20px;
         line-height: 20px;
         letter-spacing: 1px;
-        text-transform: uppercase;
+        text-transform: capitalize;
+        text-decoration:none;
     }
+
+    .typeahead li {
+        padding: 10px 0px 10px 0px;
+    }
+
+    .typeahead li:hover {
+        background: #daf5f5;
+    }
+
+    .autocomplete-ui {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: default;
+        background: transparent;
+        list-style-type: none;
+        padding: 5px 0 0 0;
+        margin: 0;
+        font-size: 14px;
+        font-size: 1.4rem;
+        -webkit-box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
+        -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, .25);
+        box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px; }
 </style>

@@ -325,6 +325,10 @@ form {
         display: inline-block;
     }
 
+    .container-page {
+        margin: 0;
+    }
+
     .nav-items a {
         margin: 0px;
     }
