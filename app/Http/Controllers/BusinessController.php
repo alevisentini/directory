@@ -39,6 +39,19 @@ class BusinessController extends Controller
         }
     }
 
+    function action(Request $request)
+    {
+        $data = $request->all();
+
+        $query = $data['query'];
+
+        $filter_data = Business::select('name')
+            ->where('name', 'LIKE', '%'.$query.'%')
+            ->get();
+
+        return response()->json($filter_data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

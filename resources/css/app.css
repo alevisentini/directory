@@ -288,6 +288,7 @@ form {
     background-color: #00bdbd;
     border-radius: 10px;
     cursor: pointer;
+    max-height: 85px;
 }
 
 .pagination {

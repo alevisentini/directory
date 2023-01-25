@@ -5,8 +5,9 @@
             <div class="filter-container">
                 <div class="form-group col-3">
                     <div><label>Name</label></div>
-                    <div><input type="text" class="form-control" id="name" name="name" value="{{ Request::get('name') }}"
-                                placeholder="Enter name"></div>
+                    <div>
+                        <input type="text" name="name" id="name" class="form-control typeahead" placeholder="Type name..." />
+                    </div>
                 </div>
                 <div class="form-group col-3">
                     <div><label>Legal name</label></div>
@@ -20,6 +21,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
+
         </form>
 
         @forelse($businesses as $business)
@@ -97,3 +99,38 @@
     </div>
 
 </x-layouts.app>
+
+<script>
+
+    var path = "{{ url('/action') }}";
+
+    $('#name').typeahead({
+
+        source: function(query, process){
+            return $.get(path, {query:query}, function(data){
+                return process(data);
+            });
+        }
+
+    });
+
+</script>
+
+<style>
+    .typeahead {
+        background-color: white;
+        width: 100%;
+    }
+
+    .typeahead a {
+        color: #364343;
+        display: block;
+        text-indent: 5px;
+        font-size: 12px;
+        font-weight: 400;
+        height: 20px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+</style>

@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AutocompleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,12 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\BusinessController@index') -> name('business');
+Route::get('/', [BusinessController::class, 'index']) -> name('business');
+Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
+
 
 Route::get('/contact', [ContactController::class, 'index']) -> name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/profile/{name}', [ProfileController::class, 'index']) -> name('profile');
+
