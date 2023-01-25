@@ -6,7 +6,8 @@
                 <div class="form-group col-3">
                     <div><label>Name</label></div>
                     <div>
-                        <input type="text" name="name" id="name" class="form-control typeahead" placeholder="Type name..." />
+                        <input type="text" name="name" id="name" class="form-control typeahead" value="{{ Request::get('name') }}"
+                               placeholder="Type name..." />
                     </div>
                 </div>
                 <div class="form-group col-3">
