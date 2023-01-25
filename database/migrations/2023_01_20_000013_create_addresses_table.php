@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('id_business')->references('id')->on('businesses')->nullable();
-            $table->foreignId('id_agent')->references('id')->on('agents')->nullable();
-            $table->foreignId('id_members')->references('id')->on('members')->nullable();
+            $table->foreignId('business_id')->references('id')->on('businesses')->nullable();
+            $table->foreignId('agent_id')->references('id')->on('agents')->nullable();
+            $table->foreignId('member_id')->references('id')->on('members')->nullable();
             $table->string('type');
             $table->string('street');
             $table->string('zip_code')->nullable();

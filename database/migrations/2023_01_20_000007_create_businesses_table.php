@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('id_status')->references('id')->on('statuses')->nullable();
-            $table->foreignId('id_activity')->references('id')->on('activities')->nullable();
-            $table->foreignId('id_type')->references('id')->on('types')->nullable();
-            $table->foreignId('id_filing')->references('id')->on('filings')->nullable();
+            $table->foreignId('status_id')->references('id')->on('statuses')->nullable();
+            $table->foreignId('activity_id')->references('id')->on('activities')->nullable();
+            $table->foreignId('type_id')->references('id')->on('types')->nullable();
+            $table->foreignId('filing_id')->references('id')->on('filings')->nullable();
             $table->string('name');
+            $table->string('state');
             $table->string('file_number')->nullable();
             $table->string('foreign_legal_name')->nullable();
             $table->string('fictitious_name')->nullable();
