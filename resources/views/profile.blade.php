@@ -24,7 +24,7 @@
     <main>
         <div id="profile-header">
             <div id="profile-picture">
-                <img src="https://via.placeholder.com/150" />
+                <img src="http://via.placeholder.com/150" />
             </div>
             <div id="profile-title">
                 <h2>[Profile Name, MD.]</h2>
@@ -33,18 +33,21 @@
         </div>
         <div id="profile-middle-content" class="content-in-cols">
             <div id="profile-contact-info">
-                <img src="https://via.placeholder.com/200x400?text=Contact+Menu" />
+                <img src="http://via.placeholder.com/200x400?text=Contact+Menu" />
             </div>
             <div id="profile-bio">
                 <div id="profile-experiences">
-                <img src="https://via.placeholder.com/800x200?text=Box-details" />
+                <img src="http://via.placeholder.com/820x200?text=Box-details" />
                 </div>
                 <div id="profile-education">
-                <img src="https://via.placeholder.com/800x200?text=Box-details" />
+                <img src="http://via.placeholder.com/820x200?text=Box-details" />
                 </div>
                 <div id="profile-locations">
-                <img src="https://via.placeholder.com/800x200?text=Map+location" />
+                <img src="http://via.placeholder.com/820x200?text=Map+location" />
                 </div>
+            </div>
+            <div id="profile-rates">
+                <img src="http://via.placeholder.com/200x400?text=Rating" />
             </div>
         </div>
     </main>
@@ -80,6 +83,9 @@
     main {
         display: flex;
         flex-flow: column wrap;
+        max-width: 1260px;
+        margin: auto;
+        padding: 10px 0;
     }
 
     /* testing only */
