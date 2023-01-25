@@ -11,6 +11,6 @@ class Type extends Model
 
     public function business()
     {
-        return $this->belongsTo(Business::class);
+        return $this->hasOne(Business::class);
     }
 }
