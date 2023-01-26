@@ -22,6 +22,16 @@
                                 placeholder="Enter fictitious name"></div>
                 </div>
                 <div class="form-group col-3">
+                    <div><label for="status_id">Status</label></div>
+                    <div><select name="status_id" id="status_id" class="form-control">
+                            <option value="">Select status</option>
+                            @foreach($statuses as $id => $name)
+                                <option value="{{$id}}" {{ Request::get('status_id') == $id ? 'selected' : '' }}>{{$name}}</option>
+                            @endforeach
+                        </select></div>
+                    </div>
+                </div>
+                <div class="form-group col-3">
                     <div><label>Select fictitious name</label></div>
                     <div>
                         <select name="id_status" class="form-control select2 col-3" placeholder="Select City" required>
@@ -98,7 +108,7 @@
                             <label>Status</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <label>{{$business['id_status']}}</label>
+                            <label>{{$business->status->name}}</label>
                         </div>
                     </div>
                 </div>

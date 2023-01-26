@@ -17,17 +17,17 @@ class Business extends Model
 
     public function status()
     {
-        return $this->hasOne(Status::class);
+        return $this->belongsTo(Status::class);
     }
 
     public function type()
     {
-        return $this->belongsTo(Type::class);
+        return $this->hasOne(Type::class);
     }
 
     public function activity()
     {
-        return $this->belongsTo(Activity::class);
+        return $this->hasOne(Activity::class);
     }
 
     public function stocks()
@@ -42,7 +42,7 @@ class Business extends Model
 
     public function filing()
     {
-        return $this->hasOne(Filing::class);
+        return $this->belongsTo(Filing::class);
     }
 
     public function report()
