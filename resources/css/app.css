@@ -1,5 +1,6 @@
 /* imports */
 @import url("layouts/profile.css");
+@import url("layouts/business.css");
 @import url("components/details-box.css");
 
 body {

@@ -22,23 +22,12 @@
                                 placeholder="Enter fictitious name"></div>
                 </div>
                 <div class="form-group col-3">
-                    <div><label for="status_id">Status</label></div>
-                    <div><select name="status_id" id="status_id" class="form-control">
+                    <div><label>Select status</label></div>
+                    <div>
+                        <select name="id_status" id="status_id"  class="form-control select2 col-3" placeholder="Select status" >
                             <option value="">Select status</option>
                             @foreach($statuses as $id => $name)
                                 <option value="{{$id}}" {{ Request::get('status_id') == $id ? 'selected' : '' }}>{{$name}}</option>
-                            @endforeach
-                        </select></div>
-                    </div>
-                </div>
-                <div class="form-group col-3">
-                    <div><label>Select fictitious name</label></div>
-                    <div>
-                        <select name="id_status" class="form-control select2 col-3" placeholder="Select City" required>
-                            @foreach($statuses as $status)
-                                <option value="{{$status['id']}}">
-                                {{ $status['name']}}
-                                </option>
                             @endforeach
 
                         </select>
@@ -108,7 +97,7 @@
                             <label>Status</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <label>{{$business->status->name}}</label>
+                            <label>{{$business['id_status']}}</label>
                         </div>
                     </div>
                 </div>
@@ -154,73 +143,3 @@
 
 </script>
 
-<style>
-    .typeahead {
-        background-color: white;
-        width: 320px;
-        overflow: hidden;
-        position: absolute;
-        cursor: default;
-        list-style-type: none;
-        padding: 5px 0 0 0;
-        margin: 0;
-        font-size: 14px;
-        font-size: 1.4rem;
-        border-radius: 3px;
-        z-index: 1;
-        border: 1px solid #364343;
-
-    }
-
-    .typeahead a {
-        color: #364343;
-        display: block;
-        text-indent: 5px;
-        font-size: 12px;
-        font-weight: 400;
-        height: 20px;
-        line-height: 20px;
-        letter-spacing: 1px;
-        text-transform: capitalize;
-        text-decoration:none;
-    }
-
-    .typeahead li {
-        padding: 10px 0px 10px 0px;
-    }
-
-    .typeahead li:hover {
-        background: #daf5f5;
-    }
-
-    .select2-container .select2-selection--single {
-        height: 40px;
-    }
-
-    .select2-container--default .select2-selection--single .select2-selection__rendered {
-        height: 40px;
-        padding: 8px;
-    }
-    .select2-container--default .select2-selection--single {
-        border: 1px solid rgba(0, 0, 0, .1);
-    }
-
-    .select2-container {
-        position: relative;
-        height: 40px;
-        border: 1px solid rgba(0, 0, 0, .1);
-        outline: none;
-        color: #364343;
-        line-height: 40px;
-        font-size: 16px;
-        border-radius: 3px;
-        transition: all 200ms ease;
-        width: 100% !important;
-    }
-
-    .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-        background-color: #00bdbd;
-        color: white;
-    }
-
-</style>
