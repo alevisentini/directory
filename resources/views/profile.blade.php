@@ -1,3 +1,8 @@
+@php
+    $itemsExperiences = ['Experiencia 1', 'Experiencia 2', 'Experiencia 3'];
+    $itemsEducation = ['Experiencia 1', 'Experiencia 2', 'Experiencia 3'];
+    $itemsSomethingElse = ['Experiencia 1', 'Experiencia 2', 'Experiencia 3'];
+@endphp
 <x-layouts.app title="Profile" meta-description="Profile">
 
     <div class="breadcrumb-container">
@@ -8,17 +13,18 @@
                     <i class="fa fa-home"></i>
                     <a href="/">HOME</a>
                 </div>
-                @for($i = 2; $i <= count(Request::segments()); $i++) <div>
-                    <a href="{{ URL::to( implode( '/', array_slice(Request::segments(), 0 ,$i, true)))}}">
-                        {{strtoupper(Request::segment($i))}}
-                    </a>
+                @for ($i = 2; $i <= count(Request::segments()); $i++)
+                    <div>
+                        <a href="{{ URL::to(implode('/', array_slice(Request::segments(), 0, $i, true))) }}">
+                            {{ strtoupper(Request::segment($i)) }}
+                        </a>
+                    </div>
+                @endfor
+            </ol>
         </div>
-        @endfor
-        </ol>
-    </div>
-    <div>
-        <button onclick="window.location='{{ url('/') }}'">Back to Results</button>
-    </div>
+        <div>
+            <button onclick="window.location='{{ url('/') }}'">Back to Results</button>
+        </div>
     </div>
 
     <main>
@@ -33,18 +39,20 @@
         </div>
         <div id="profile-middle-content" class="content-in-cols">
             <div id="profile-contact-info">
-                <img src="http://via.placeholder.com/200x400?text=Contact+Menu" />
+                <div class="summary-contact">
+
+                    <a href="#" class="button button-appt" rel="nofollow" role="link" tabindex="0">
+                        <span class="button-icon fa fa-calendar"></span>
+                        Request Visit
+                    </a>
+                </div>
+                <img src="http://via.placeholder.com/200x400?text=Contact+menu" />
             </div>
             <div id="profile-bio">
-                <div id="profile-experiences">
-                <img src="http://via.placeholder.com/820x200?text=Box-details" />
-                </div>
-                <div id="profile-education">
-                <img src="http://via.placeholder.com/820x200?text=Box-details" />
-                </div>
-                <div id="profile-locations">
-                <img src="http://via.placeholder.com/820x200?text=Map+location" />
-                </div>
+                <x-details-box title="Experiences" icon-class="calendar" :items="$itemsExperiences" />
+                <x-details-box title="Educational" icon-class="calendar" :items="$itemsEducation" />
+                <x-details-box title="SomethingElse" icon-class="calendar" :items="$itemsSomethingElse" />
+
             </div>
             <div id="profile-rates">
                 <img src="http://via.placeholder.com/200x400?text=Rating" />
@@ -55,6 +63,8 @@
 </x-layouts.app>
 
 <style>
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
     .breadcrumb {
         display: flex;
     }
@@ -88,6 +98,10 @@
         padding: 10px 0;
     }
 
+    img {
+        border-radius: 2px;
+    }
+
     /* testing only */
 
     #profile-header {
@@ -95,6 +109,7 @@
         flex-flow: row wrap;
         background-color: #e1eae6;
         margin-bottom: 20px;
+        border-radius: 2px;
     }
 
     #profile-picture {
@@ -129,6 +144,41 @@
         display: flex;
         flex-flow: row wrap;
         gap: 20px;
+    }
+
+    #profile-contact-info .summary-contact {
+        max-width: 190px;
+    }
+
+    #profile-contact-info .button {
+        width: 100%;
+        margin-bottom: 15px;
+        background: #fff;
+        font-weight: 400;
+        text-transform: none;
+        text-decoration: none;
+        color: #364343;
+        border: 1px solid #364343;
+        border-radius: 2px;
+        padding: 12px 0px 12px 9px;
+        display: flex;
+    }
+
+    #profile-contact-info .button.button-appt {
+        background: #00bdbd;
+        color: #fff;
+        border-color: #00bdbd;
+    }
+
+    #profile-contact-info .button .button-icon {
+        padding-right: 10px;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
     }
 
     #profile-bio {
