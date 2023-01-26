@@ -1,3 +1,7 @@
+/* imports */
+@import url("layouts/profile.css");
+@import url("components/details-box.css");
+
 body {
     font-family: "DIN Next", sans-serif;
     color: #364343;
