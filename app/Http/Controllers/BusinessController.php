@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use App\Models\Entity;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use Exception;
@@ -22,12 +23,15 @@ class BusinessController extends Controller
         $fictitious_name = $request->get('fictitious_name');
 
         try {
-            $businesses = Business::orderBy('id', 'ASC')
+            $businesses = Business::with('status')->orderBy('id', 'ASC')
                 ->name($name)
                 ->foreign_legal_name($foreign_legal_name)
                 ->fictitious_name($fictitious_name)
                 ->paginate(10);
-            return view('business', compact('businesses'));
+            return view('business', [
+                'businesses' => $businesses,
+                'statuses' => Status::pluck('name', 'id')
+        ]);
         } catch (Exception $ex) {
             Bugsnag::leaveBreadcrumb('Entity data', 'info', [
                 'name' => $name,

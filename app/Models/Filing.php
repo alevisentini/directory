@@ -11,6 +11,6 @@ class Filing extends Model
 
     public function business()
     {
-        return $this->belongsTo(Business::class);
+        return $this->hasMany(Business::class);
     }
 }

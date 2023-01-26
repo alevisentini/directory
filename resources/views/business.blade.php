@@ -19,7 +19,17 @@
                 <div class="form-group col-3">
                     <div><label>Fictitious name</label></div>
                     <div><input type="text" class="form-control" id="fictitious_name" name="fictitious_name" value="{{ Request::get('fictitious_name') }}"
-                                placeholder="Enter fictitious name"></div>
+                        placeholder="Enter fictitious name"></div>
+                </div>
+                <div class="form-group col-3">
+                    <div><label for="status_id">Status</label></div>
+                    <div><select name="status_id" id="status_id" class="form-control">
+                            <option value="">Select status</option>
+                            @foreach($statuses as $id => $name)
+                                <option value="{{$id}}" {{ Request::get('status_id') == $id ? 'selected' : '' }}>{{$name}}</option>
+                            @endforeach
+                        </select></div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
@@ -77,6 +87,15 @@
                         </div>
                         <div class="card-body-description-subtitle">
                             <label>{{$business['fictitious_name']}}</label>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body-highlights">
+                        <div class="card-body-description-title">
+                            <label>Status</label>
+                        </div>
+                        <div class="card-body-description-subtitle">
+                            <label>{{$business->status->name}}</label>
                         </div>
                     </div>
                 </div>
