@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('id_business')->references('id')->on('businesses');
+            $table->foreignId('business_id')->references('id')->on('businesses');
             $table->string('share_value')->nullable();
             $table->integer('number_of_share')->nullable();
             $table->float('value_per_share')->nullable();

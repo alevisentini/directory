@@ -13,4 +13,9 @@ class Member extends Model
     {
         return $this->belongsTo(Business::class);
     }
+
+    public function address()
+    {
+        return $this->hasMany(Address::class);
+    }
 }

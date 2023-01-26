@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('id_business')->references('id')->on('businesses');
+            $table->foreignId('business_id')->references('id')->on('businesses');
             $table->string('type')->nullable();
             $table->string('url')->nullable();
             $table->date('date')->nullable();
