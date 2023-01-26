@@ -21,6 +21,19 @@
                     <div><input type="text" class="form-control" id="fictitious_name" name="fictitious_name" value="{{ Request::get('fictitious_name') }}"
                                 placeholder="Enter fictitious name"></div>
                 </div>
+                <div class="form-group col-3">
+                    <div><label>Select fictitious name</label></div>
+                    <div>
+                        <select name="id_status" class="form-control select2 col-3" placeholder="Select City" required>
+                            @foreach($statuses as $status)
+                                <option value="{{$status['id']}}">
+                                {{ $status['name']}}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
 
@@ -79,6 +92,15 @@
                             <label>{{$business['fictitious_name']}}</label>
                         </div>
                     </div>
+
+                    <div class="card-body-highlights">
+                        <div class="card-body-description-title">
+                            <label>Status</label>
+                        </div>
+                        <div class="card-body-description-subtitle">
+                            <label>{{$business['id_status']}}</label>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-footer">
@@ -103,6 +125,10 @@
 </x-layouts.app>
 
 <script>
+
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
 
     var path = "{{ url('/action') }}";
 
@@ -136,8 +162,6 @@
 
     }
 
-
-
     .typeahead a {
         color: #364343;
         display: block;
@@ -159,24 +183,34 @@
         background: #daf5f5;
     }
 
-    .autocomplete-ui {
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        cursor: default;
-        background: transparent;
-        list-style-type: none;
-        padding: 5px 0 0 0;
-        margin: 0;
-        font-size: 14px;
-        font-size: 1.4rem;
-        -webkit-box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
-        -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, .25);
-        box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-        -o-border-radius: 3px;
-        border-radius: 3px; }
+    .select2-container .select2-selection--single {
+        height: 40px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        height: 40px;
+        padding: 8px;
+    }
+    .select2-container--default .select2-selection--single {
+        border: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    .select2-container {
+        position: relative;
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, .1);
+        outline: none;
+        color: #364343;
+        line-height: 40px;
+        font-size: 16px;
+        border-radius: 3px;
+        transition: all 200ms ease;
+        width: 100% !important;
+    }
+
+    .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+        background-color: #00bdbd;
+        color: white;
+    }
+
 </style>
