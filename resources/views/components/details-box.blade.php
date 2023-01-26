@@ -27,6 +27,7 @@
         -o-border-radius: 2px;
         border-radius: 2px;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        min-width: 790px;
     }
 
     .details-box h4.details-box-title {
