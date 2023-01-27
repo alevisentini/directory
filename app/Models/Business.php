@@ -87,4 +87,11 @@ class Business extends Model
         }
     }
 
+    public function scopeStatus($query, $id_status)
+    {
+        if ($id_status) {
+            return $query->where('id_status', 'LIKE', "%$id_status%");
+        }
+    }
+
 }

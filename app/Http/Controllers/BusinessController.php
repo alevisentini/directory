@@ -21,12 +21,14 @@ class BusinessController extends Controller
         $name = $request->get('name');
         $foreign_legal_name = $request->get('foreign_legal_name');
         $fictitious_name = $request->get('fictitious_name');
+        $id_status = $request->get('id_status');
 
         try {
             $businesses = Business::with('status')->orderBy('id', 'ASC')
                 ->name($name)
                 ->foreign_legal_name($foreign_legal_name)
                 ->fictitious_name($fictitious_name)
+                ->status($id_status)
                 ->paginate(10);
             return view('business', [
                 'businesses' => $businesses,
@@ -37,6 +39,7 @@ class BusinessController extends Controller
                 'name' => $name,
                 'foreign_legal_name' => $foreign_legal_name,
                 'fictitious_name' => $fictitious_name,
+                'id_status' => $id_status,
                 'message' => $ex->getMessage()
             ]);
             Bugsnag::notifyException($ex);
