@@ -23,9 +23,16 @@ use App\Http\Controllers\AutocompleteController;
 //    var_dump($query->sql);
 //});
 
-Route::get('/', [BusinessController::class, 'index']) -> name('business');
-Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
+//Route::get('/', [BusinessController::class, 'index']) -> name('business');
+//Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
 
+Route::controller(BusinessController::class)->prefix('business')->group(function () {
+    Route::get('/', 'index')->name('business');
+    Route::get('/{id}', 'show')->name('business.show');
+    Route::patch('/{id}', 'edit')->name('business.edit');
+    Route::put('/{id}', 'update')->name('business.update');
+    Route::delete('/{id}', 'destroy')->name('business.destroy');
+});
 
 Route::get('/contact', [ContactController::class, 'index']) -> name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

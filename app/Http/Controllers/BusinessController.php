@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Business;
-use App\Models\Entity;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
@@ -21,9 +20,10 @@ class BusinessController extends Controller
         $name = $request->get('name');
         $foreign_legal_name = $request->get('foreign_legal_name');
         $fictitious_name = $request->get('fictitious_name');
-        $id_status = $request->get('id_status');
+        $status_id = $request->get('status_id');
 
         try {
+            $businesses = Business::with('status')->filter($request)->orderBy('id', 'ASC')
             $businesses = Business::with('status')->orderBy('id', 'ASC')
                 ->name($name)
                 ->foreign_legal_name($foreign_legal_name)
@@ -39,7 +39,7 @@ class BusinessController extends Controller
                 'name' => $name,
                 'foreign_legal_name' => $foreign_legal_name,
                 'fictitious_name' => $fictitious_name,
-                'id_status' => $id_status,
+                'status_id' => $status_id,
                 'message' => $ex->getMessage()
             ]);
             Bugsnag::notifyException($ex);

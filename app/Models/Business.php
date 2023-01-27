@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use App\Filters\BusinessFilter;
 
 class Business extends Model
 {
@@ -66,7 +68,7 @@ class Business extends Model
     }
 
 
-    public function scopeName($query, $name)
+    public static function scopeName($query, $name)
     {
         if ($name) {
             return $query->where('name', 'LIKE', "%$name%");
@@ -92,6 +94,11 @@ class Business extends Model
         if ($id_status) {
             return $query->where('id_status', 'LIKE', "%$id_status%");
         }
+    }
+
+    public function scopeFilter(Builder $builder, $request)
+    {
+        return (new BusinessFilter($request))->filter($builder);
     }
 
 }
