@@ -24,13 +24,14 @@
                 <div class="form-group col-3">
                     <div><label>Select status</label></div>
                     <div>
-                        <select name="id_status" id="status_id"  class="form-control select2 col-3" placeholder="Select status" >
+                        <select name="id_status" id="status_id"  class="form-control select2 col-3" placeholder="Select status">
                             <option value="">Select status</option>
                             @foreach($statuses as $id => $name)
-                                <option value="{{$id}}" {{ Request::get('status_id') == $id ? 'selected' : '' }}>{{$name}}</option>
+                                <option value="{{$id}}" {{ Request::get('id_status') == $id ? 'selected' : '' }}>{{$name}}</option>
                             @endforeach
 
                         </select>
+
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
