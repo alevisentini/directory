@@ -93,12 +93,12 @@
                         </div>
                     </div>
 
-                    <div class="card-body-highlights">
+                    <div class="card-body-highlights ms-2">
                         <div class="card-body-description-title">
                             <label>Status</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <label>{{$business['id_status']}}</label>
+                            <label>{{$business['status_id']}}</label>
                         </div>
                     </div>
                 </div>
