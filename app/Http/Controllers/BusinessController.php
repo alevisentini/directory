@@ -23,16 +23,12 @@ class BusinessController extends Controller
         $status_id = $request->get('status_id');
 
         try {
-            $businesses = Business::with('status')->orderBy('id', 'ASC')
-                ->name($name)
-                ->foreign_legal_name($foreign_legal_name)
-                ->fictitious_name($fictitious_name)
-                ->status($status_id)
+            $businesses = Business::with('status')->filter($request)->orderBy('id', 'ASC')
                 ->paginate(10);
             return view('business', [
                 'businesses' => $businesses,
                 'statuses' => Status::pluck('name', 'id')
-        ]);
+            ]);
         } catch (Exception $ex) {
             Bugsnag::leaveBreadcrumb('Entity data', 'info', [
                 'name' => $name,
