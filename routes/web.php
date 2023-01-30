@@ -26,7 +26,7 @@ use App\Http\Controllers\AutocompleteController;
 //Route::get('/', [BusinessController::class, 'index']) -> name('business');
 Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
 
-Route::controller(BusinessController::class)->prefix('business')->group(function () {
+Route::controller(BusinessController::class)->group(function () {
     Route::get('/', 'index')->name('business');
     Route::get('/{id}', 'show')->name('business.show');
     Route::patch('/{id}', 'edit')->name('business.edit');
