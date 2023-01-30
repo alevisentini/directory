@@ -89,6 +89,14 @@ class Business extends Model
         }
     }
 
+    public function scopeStatus($query, $status_id)
+    {
+        if ($status_id) {
+            return $query->where('status_id', 'LIKE', "%$status_id%");
+        }
+    }
+
+
     public function scopeFilter(Builder $builder, $request)
     {
         return (new BusinessFilter($request))->filter($builder);
