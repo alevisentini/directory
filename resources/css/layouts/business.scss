@@ -1,75 +1,6 @@
-/* imports */
-@import url("layouts/profile.css");
-@import url("components/details-box.css");
+@import  '../colors.scss';
 
-body {
-    font-family: "DIN Next", sans-serif;
-    color: #364343;
-    line-height: 1.6;
-}
 
-button {
-    cursor: pointer;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 60px;
-}
-
-.nav-items {
-    margin-right: 100px;
-}
-
-.nav-items a {
-    margin: 0 0 60px 60px;
-    display: inline-block;
-    position: relative;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.075em;
-    color: #364343;
-    padding: 7px 0;
-    border: none;
-    cursor: pointer;
-}
-
-.nav-log {
-    margin-right: 200px;
-}
-
-.table, th, td {
-    border: 1px solid #f0f0f0;
-}
-
-.table {
-    width: 100%;
-}
-
-.container-page {
-    margin: 0 60px 60px 60px;
-}
-
-.container-page h4 {
-    display: flex;
-    justify-content: center;
-}
-.no-data-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
-}
-
-/* Contact form */
-
-.container {
-    max-width: 500px;
-    margin: 50px auto;
-    text-align: left;
-    font-family: sans-serif;
-}
 form {
     background: #ecf5fc;
     padding: 40px 50px 45px;
@@ -103,7 +34,7 @@ form {
 
 .form-group div input:focus {
     z-index: 1;
-    border: 1px solid #00bdbd;
+    border: 1px solid $primary-green;
     box-shadow: 0px 1px 2px rgb(0 0 0 / 10%);
     background: #fff;
     font-size: 16px;
@@ -127,20 +58,7 @@ form {
     padding: 20px;
 }
 
-.error {
-    color: red;
-    font-weight: 400;
-    display: block;
-    padding: 6px 0;
-    font-size: 14px;
-}
 
-.form-control.error {
-    border-color: red;
-    padding: .375rem .75rem;
-}
-
-/*Directory*/
 .card-container {
     margin-top: 10px;
     padding-bottom: 10px;
@@ -185,7 +103,7 @@ form {
 .card-header-description {
     display: flex;
     justify-content: space-between;
-    color: #00bdbd;
+    color: $primary-green;
     cursor: pointer;
     font-size: 14px;
     padding-bottom: 10px;
@@ -226,7 +144,7 @@ form {
 }
 
 .card-body-stadistic div {
-    color: #00bdbd;
+    color: $primary-green;
     cursor: pointer;
     font-size: 14px;
     padding-bottom: 10px;
@@ -289,7 +207,7 @@ form {
     text-transform: uppercase;
     color: #fff;
     border: none;
-    background-color: #00bdbd;
+    background-color: $primary-green;
     border-radius: 10px;
     cursor: pointer;
     max-height: 85px;
@@ -323,6 +241,95 @@ form {
 
 .col-3 {width: 25%;}
 
+.container-page {
+    margin: 0 60px 60px 60px;
+}
+
+.container-page h4 {
+    display: flex;
+    justify-content: center;
+}
+
+.no-data-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.typeahead {
+    background-color: white;
+    width: 320px;
+    overflow: hidden;
+    position: absolute;
+    cursor: default;
+    list-style-type: none;
+    padding: 5px 0 0 0;
+    margin: 0;
+    font-size: 14px;
+    font-size: 1.4rem;
+    border-radius: 3px;
+    z-index: 1;
+    border: 1px solid #364343;
+
+}
+
+.typeahead a {
+    color: #364343;
+    display: block;
+    text-indent: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    text-decoration:none;
+}
+
+.typeahead li {
+    padding: 10px 0px 10px 0px;
+}
+
+.typeahead li:hover {
+    background: #daf5f5;
+}
+
+.select2-container .select2-selection--single {
+    height: 40px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    height: 40px;
+    padding: 8px;
+}
+
+.select2-container--default .select2-selection--single {
+    border: none !important;
+}
+
+.select2-container {
+    position: relative;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    outline: none;
+    color: #364343;
+    line-height: 40px;
+    font-size: 16px;
+    border-radius: 3px;
+    transition: all 200ms ease;
+    width: 100% !important;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: $primary-green !important;
+    color: white;
+}
+
+.card-body-highlights {
+    margin-left: 10px;
+}
+
+
 @media only screen and (max-width: 600px) {
     .nav-container {
         margin-top: 10px;
@@ -331,10 +338,6 @@ form {
 
     .container-page {
         margin: 0;
-    }
-
-    .nav-items a {
-        margin: 0px;
     }
 
     .filter-container {
@@ -368,27 +371,9 @@ form {
     .card-body-highlights {
         display: none;
     }
-
-    .site-footer__sub {
-        display: block !important;
-    }
-
-    .site-footer__sub div {
-        display: flex;
-        justify-content: center;
-    }
 }
 
 @media (min-width: 601px) and (max-width: 1180px) {
-    .nav-container {
-        margin-top: 10px;
-        display: inline-block;
-    }
-
-    .nav-items a {
-        margin: 0px;
-    }
-
 
     .filter-container {
     }
@@ -403,10 +388,5 @@ form {
 
     .form-group div input {
         width: 120px;
-    }
-
-    .site-footer__sub div {
-        display: block;
-        justify-content: center;
     }
 }

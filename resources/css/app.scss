@@ -1,0 +1,82 @@
+/* imports */
+@import "/resources/css/layouts/profile.scss";
+@import "/resources/css/layouts/business.scss";
+@import "/resources/css/layouts/contact.scss";
+@import "../css/components/details-box.scss";
+
+body {
+    font-family: "DIN Next", sans-serif;
+    line-height: 1.6;
+}
+
+button {
+    cursor: pointer;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 60px;
+}
+
+.nav-items {
+    margin-right: 100px;
+}
+
+.nav-items a {
+    margin: 0 0 60px 60px;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    color: #364343;
+    padding: 7px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-log {
+    margin-right: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .container-page {
+        margin: 0;
+    }
+
+    .nav-items a {
+        margin: 0px;
+    }
+
+    .site-footer__sub {
+        display: block !important;
+    }
+
+    .site-footer__sub div {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1180px) {
+    .nav-container {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .nav-items a {
+        margin: 0px;
+    }
+
+    .site-footer__sub div {
+        display: block;
+        justify-content: center;
+    }
+}

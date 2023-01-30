@@ -19,16 +19,19 @@
                 <div class="form-group col-3">
                     <div><label>Fictitious name</label></div>
                     <div><input type="text" class="form-control" id="fictitious_name" name="fictitious_name" value="{{ Request::get('fictitious_name') }}"
-                        placeholder="Enter fictitious name"></div>
+                                placeholder="Enter fictitious name"></div>
                 </div>
                 <div class="form-group col-3">
-                    <div><label for="status_id">Status</label></div>
-                    <div><select name="status_id" id="status_id" class="form-control">
+                    <div><label>Select status</label></div>
+                    <div>
+                        <select name="id_status" id="status_id"  class="form-control select2 col-3" placeholder="Select status">
                             <option value="">Select status</option>
                             @foreach($statuses as $id => $name)
-                                <option value="{{$id}}" {{ Request::get('status_id') == $id ? 'selected' : '' }}>{{$name}}</option>
+                                <option value="{{$id}}" {{ Request::get('id_status') == $id ? 'selected' : '' }}>{{$name}}</option>
                             @endforeach
-                        </select></div>
+
+                        </select>
+
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -89,13 +92,13 @@
                             <label>{{$business['fictitious_name']}}</label>
                         </div>
                     </div>
-                    
-                    <div class="card-body-highlights">
+
+                    <div class="card-body-highlights ms-2">
                         <div class="card-body-description-title">
                             <label>Status</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <label>{{$business->status->name}}</label>
+                            <label>{{$business['status_id']}}</label>
                         </div>
                     </div>
                 </div>
@@ -123,6 +126,10 @@
 
 <script>
 
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+
     var path = "{{ url('/action') }}";
 
     $('#name').typeahead({
@@ -137,65 +144,3 @@
 
 </script>
 
-<style>
-    .typeahead {
-        background-color: white;
-        width: 320px;
-        overflow: hidden;
-        position: absolute;
-        cursor: default;
-        list-style-type: none;
-        padding: 5px 0 0 0;
-        margin: 0;
-        font-size: 14px;
-        font-size: 1.4rem;
-        border-radius: 3px;
-        z-index: 1;
-        border: 1px solid #364343;
-
-    }
-
-
-
-    .typeahead a {
-        color: #364343;
-        display: block;
-        text-indent: 5px;
-        font-size: 12px;
-        font-weight: 400;
-        height: 20px;
-        line-height: 20px;
-        letter-spacing: 1px;
-        text-transform: capitalize;
-        text-decoration:none;
-    }
-
-    .typeahead li {
-        padding: 10px 0px 10px 0px;
-    }
-
-    .typeahead li:hover {
-        background: #daf5f5;
-    }
-
-    .autocomplete-ui {
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        cursor: default;
-        background: transparent;
-        list-style-type: none;
-        padding: 5px 0 0 0;
-        margin: 0;
-        font-size: 14px;
-        font-size: 1.4rem;
-        -webkit-box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
-        -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, .25);
-        box-shadow: 0 5px 5px rgb(0 0 0 / 25%);
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-        -o-border-radius: 3px;
-        border-radius: 3px; }
-</style>

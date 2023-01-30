@@ -21,9 +21,13 @@ class BusinessController extends Controller
         $foreign_legal_name = $request->get('foreign_legal_name');
         $fictitious_name = $request->get('fictitious_name');
         $status_id = $request->get('status_id');
-        
+
         try {
-            $businesses = Business::with('status')->filter($request)->orderBy('id', 'ASC')
+            $businesses = Business::with('status')->orderBy('id', 'ASC')
+                ->name($name)
+                ->foreign_legal_name($foreign_legal_name)
+                ->fictitious_name($fictitious_name)
+                ->status($status_id)
                 ->paginate(10);
             return view('business', [
                 'businesses' => $businesses,
