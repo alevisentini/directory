@@ -11,6 +11,6 @@ class Status extends Model
 
     public function business()
     {
-        return $this->hasMany(Business::class);
+        return $this->hasOne(Business::class);
     }
 }

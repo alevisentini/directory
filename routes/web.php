@@ -19,9 +19,9 @@ use App\Http\Controllers\AutocompleteController;
 |
 */
 
-DB::listen(function ($query) {
+/*DB::listen(function ($query) {
     var_dump($query->sql);
-});
+});*/
 
 //Route::get('/', [BusinessController::class, 'index']) -> name('business');
 //Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
