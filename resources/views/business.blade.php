@@ -113,13 +113,15 @@
                     </div>
                 </div>
             </div>
-            {{ $businesses->links('pagination.default') }}
+            
 
         @empty
             <div class="no-data-container">
                 <label>No Search Results Found</label>
             </div>
         @endforelse
+
+        {{$businesses->appends(['name' => Request::get('name'),'foreign_legal_name' => Request::get('foreign_legal_name'), 'fictitious_name' => Request::get('fictitious_name'), 'status_id' => Request::get('status_id')])->links('pagination.default')}}
     </div>
 
 </x-layouts.app>
