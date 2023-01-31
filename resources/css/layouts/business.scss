@@ -193,7 +193,37 @@ form {
 
 .filter-container {
     display: flex;
+    padding: 15px;
     justify-content: space-evenly;
+}
+
+.second-filter-container {
+    margin-top: 10px;
+    border-top: 1px solid $gray-border;
+}
+
+.second-filter-container label {
+    font-family: "DIN Next", sans-serif;
+    color: #364343;
+    display: block;
+    text-indent: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.second-filter-container .slider {
+    padding: 15px;
+    max-width: 150px;
+    border-right: 1px solid $gray-border;
+}
+
+.second-filter-container .slider div {
+    display: flex;
+    justify-content: end;
 }
 
 .btn-primary {

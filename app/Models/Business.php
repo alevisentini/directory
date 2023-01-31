@@ -96,6 +96,13 @@ class Business extends Model
         }
     }
 
+    public function scopeTexasSosFileNumber($query, $texas_sos_file_number)
+    {
+        if ($texas_sos_file_number) {
+            return $query->where('texas_sos_file_number', 'LIKE', "%$texas_sos_file_number%");
+        }
+    }
+
 
     public function scopeFilter(Builder $builder, $request)
     {

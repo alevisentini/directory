@@ -36,6 +36,19 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
+            <div class="second-filter-container">
+                <div class="slider">
+                        <div><label>Texas file number</label></div>
+                    <div>
+
+                        <input type="range" id="texas_sos_file_number" name="texas_sos_file_number" min="0" max="100" step="10"
+                        value="{{ Request::get('texas_sos_file_number') }}">
+                    </div>
+                    <div>
+                     <span id="rangeValue"><span></span></span>
+                    </div>
+                </div>
+            </div>
 
         </form>
 
@@ -98,12 +111,21 @@
                         </div>
                     </div>
 
-                    <div class="card-body-highlights ms-2">
+                    <div class="card-body-highlights">
                         <div class="card-body-description-title">
                             <label>Status</label>
                         </div>
                         <div class="card-body-description-subtitle">
                             <label>{{$business['status_id']}}</label>
+                        </div>
+                    </div>
+
+                    <div class="card-body-highlights">
+                        <div class="card-body-description-title">
+                            <label>Texas file number</label>
+                        </div>
+                        <div class="card-body-description-subtitle">
+                            <label>{{$business['texas_sos_file_number']}}</label>
                         </div>
                     </div>
                 </div>
@@ -148,6 +170,10 @@
         }
 
     });
-
+    // Show value when slider is changing
+    document.querySelector('#rangeValue span').innerHTML = {{ Request::get('texas_sos_file_number') }};
+    document.querySelector('#texas_sos_file_number').addEventListener('input', function() {
+        document.querySelector('#rangeValue span').innerHTML = this.value;
+    });
 </script>
 
