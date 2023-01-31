@@ -2,9 +2,14 @@
 <ul class="pagination">
     {{-- Previous Page Link --}}
     @if ($paginator->onFirstPage())
-    <li class="disabled"><span>&laquo;</span></li>
+    <li class="disabled">
+        <span class="button-icon fa fa-arrow-left"></span>
+    </li>
     @else
-    <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></li>
+    <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev">
+            <span class="button-icon fa fa-arrow-left"></span>
+            Previous
+        </a></li>
     @endif
 
     {{-- Pagination Elements --}}
@@ -18,7 +23,7 @@
     @if (is_array($element))
     @foreach ($element as $page => $url)
     @if ($page == $paginator->currentPage())
-    <li class="active"><span>{{ $page }}</span></li>
+    <li class="active test"><a>{{ $page }}</a></li>
     @else
     <li><a href="{{ $url }}">{{ $page }}</a></li>
     @endif
@@ -28,9 +33,14 @@
 
     {{-- Next Page Link --}}
     @if ($paginator->hasMorePages())
-    <a href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a>
+    <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="next-container">
+        Next
+        <span class="button-icon fa fa-arrow-right"></span>
+    </a>
     @else
-    <li class="disabled"><span>&raquo;</span></li>
+    <li class="disabled">
+        <span class="button-icon fa fa-arrow-right"></span>
+    </li>
     @endif
 </ul>
 @endif
