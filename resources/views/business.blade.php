@@ -39,6 +39,11 @@
 
         </form>
 
+        <div class="total-result">
+            <span>Showing </span>{{ $businesses->count() }} <span> of </span> {{ $businesses->total() }}
+            <span>companies</span>
+        </div>
+
         @forelse($businesses as $business)
 
             <div class="card-container">
@@ -113,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
         @empty
             <div class="no-data-container">
