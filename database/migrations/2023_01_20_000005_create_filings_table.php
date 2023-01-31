@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->date('initial_date')->nullable();
             $table->date('effective_date')->nullable();
-            $table->date('last_evemt')->nullable();
+            $table->date('last_event')->nullable();
             $table->date('event_date_filed')->nullable();
             $table->date('event_effective_date')->nullable();
             $table->timestamps();

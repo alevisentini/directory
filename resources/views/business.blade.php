@@ -103,7 +103,7 @@
                             <label>Status</label>
                         </div>
                         <div class="card-body-description-subtitle">
-                            <label>{{$business['status_id']}}</label>
+                            <label>{{$business->status->name}}</label>
                         </div>
                     </div>
                 </div>
