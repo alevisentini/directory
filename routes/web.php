@@ -21,7 +21,7 @@ use App\Http\Controllers\ProfileController;
     var_dump($query->sql);
 });*/
 
-Route::controller(BusinessController::class)->group(function () {
+Route::controller(BusinessController::class)->prefix('business')->group(function () {
     Route::get('/', 'index')->name('business');
     Route::get('/{id}', 'show')->name('business.show');
     Route::patch('/{id}', 'edit')->name('business.edit');

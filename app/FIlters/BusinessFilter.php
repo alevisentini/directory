@@ -10,6 +10,9 @@ class BusinessFilter extends AbstractFilter
 {
     protected $filters = [
         'status_id' => StatusFilter::class,
+        'type_id' => TypeFilter::class,
+        'activity_id' => ActivityFilter::class,
+        'state_id' => StateFilter::class,
         'name' => BusinessNameFilter::class,
     ];
 }
