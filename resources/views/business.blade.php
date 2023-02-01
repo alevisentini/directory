@@ -10,16 +10,27 @@
                                placeholder="Type name..." autocomplete="off" />
                     </div>
                 </div>
-
                 <div class="form-group col-3">
-                    <div><label>Legal name</label></div>
-                    <div><input type="text" class="form-control" id="foreign_legal_name" name="foreign_legal_name" value="{{ Request::get('foreign_legal_name') }}"
-                                placeholder="Enter legal name"></div>
+                    <div><label>Select type</label></div>
+                    <div>
+                        <select name="type_id" id="type_id"  class="form-control select2 col-3" placeholder="Select type">
+                            <option value="">Select type</option>
+                            @foreach($types as $id => $name)
+                                <option value="{{$id}}" {{ Request::get('type_id') == $id ? 'selected' : '' }}>{{$name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group col-3">
-                    <div><label>Fictitious name</label></div>
-                    <div><input type="text" class="form-control" id="fictitious_name" name="fictitious_name" value="{{ Request::get('fictitious_name') }}"
-                                placeholder="Enter fictitious name"></div>
+                    <div><label>Select activity</label></div>
+                    <div>
+                        <select name="activity_id" id="activity_id"  class="form-control select2 col-3" placeholder="Select status">
+                            <option value="">Select activity</option>
+                            @foreach($activities as $id => $name)
+                                <option value="{{$id}}" {{ Request::get('activity_id') == $id ? 'selected' : '' }}>{{$name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group col-3">
                     <div><label>Select status</label></div>
@@ -29,9 +40,7 @@
                             @foreach($statuses as $id => $name)
                                 <option value="{{$id}}" {{ Request::get('status_id') == $id ? 'selected' : '' }}>{{$name}}</option>
                             @endforeach
-
                         </select>
-
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -144,6 +153,24 @@
                             <label>{{$business['file_number']}}</label>
                         </div>
                     </div>
+
+                    <div class="card-body-highlights">
+                        <div class="card-body-description-title">
+                            <label>Type</label>
+                        </div>
+                        <div class="card-body-description-subtitle">
+                            <label>{{$business->type->name}}</label>
+                        </div>
+                    </div>
+
+                    <div class="card-body-highlights">
+                        <div class="card-body-description-title">
+                            <label>Activity</label>
+                        </div>
+                        <div class="card-body-description-subtitle">
+                            <label>{{$business->activity->name}}</label>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card-footer">
@@ -187,7 +214,7 @@
 
     });
     // Show value when slider is changing
-    document.querySelector('#rangeValue span').innerHTML = {{ Request::get('texas_sos_file_number') }};
+    document.querySelector('#rangeValue span').innerHTML = {{ Request::get('texas_sos_file_number') ? Request::get('texas_sos_file_number') : 1 }};
     document.querySelector('#texas_sos_file_number').addEventListener('input', function() {
         document.querySelector('#rangeValue span').innerHTML = this.value;
     });
