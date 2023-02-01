@@ -24,12 +24,12 @@ class Business extends Model
 
     public function type()
     {
-        return $this->hasOne(Type::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function activity()
     {
-        return $this->hasOne(Activity::class);
+        return $this->belongsTo(Activity::class);
     }
 
     public function stocks()
@@ -65,6 +65,11 @@ class Business extends Model
     public function agent()
     {
         return $this->hasMany(Agent::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(States::class);
     }
 
 

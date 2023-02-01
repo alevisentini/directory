@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             ActivityTableSeeder::class,
             FilingTableSeeder::class,
             StatusTableSeeder::class,
+            StateTableSeeder::class,
             BusinessTableSeeder::class,
         ]);
     }

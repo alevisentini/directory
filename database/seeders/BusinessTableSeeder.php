@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Business;
 use App\Models\Filing;
 use App\Models\Activity;
+use App\Models\State;
 use App\Models\Type;
 use App\Models\Status;
 
@@ -29,8 +30,8 @@ class BusinessTableSeeder extends Seeder
                 'type_id' => Type::inRandomOrder()->first()->id,
                 'activity_id' => Activity::inRandomOrder()->first()->id,
                 'filing_id' => Filing::inRandomOrder()->first()->id,
+                'state_id' => State::inRandomOrder()->first()->id,
                 'name' => 'Business ' . $i,
-                'state' => 'State ' . $i,
                 'file_number' => $i,
                 'foreign_legal_name' => 'Business' . $i,
                 'fictitious_name' => 'Business' . $i,
