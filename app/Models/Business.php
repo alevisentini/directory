@@ -103,6 +103,13 @@ class Business extends Model
         }
     }
 
+    public function scopeFileNumber($query, $file_number)
+    {
+        if ($file_number) {
+            return $query->where('file_number', 'LIKE', "%$file_number%");
+        }
+    }
+
 
     public function scopeFilter(Builder $builder, $request)
     {

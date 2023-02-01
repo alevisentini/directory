@@ -198,6 +198,7 @@ form {
 }
 
 .second-filter-container {
+    display: flex;
     margin-top: 10px;
     border-top: 1px solid $gray-border;
 }
@@ -215,13 +216,13 @@ form {
     text-transform: uppercase;
 }
 
-.second-filter-container .slider {
+.second-filter-container .sub-container {
     padding: 15px;
     max-width: 150px;
     border-right: 1px solid $gray-border;
 }
 
-.second-filter-container .slider div {
+.second-filter-container .sub-container div {
     display: flex;
     justify-content: end;
 }

@@ -22,6 +22,7 @@ class BusinessController extends Controller
         $fictitious_name = $request->get('fictitious_name');
         $status_id = $request->get('status_id');
         $texas_sos_file_number = $request->get('texas_sos_file_number');
+        $file_number = $request->get('file_number');
 
         try {
             $businesses = Business::with('status')->filter($request)->orderBy('id', 'ASC')
@@ -37,6 +38,7 @@ class BusinessController extends Controller
                 'fictitious_name' => $fictitious_name,
                 'status_id' => $status_id,
                 'texas_sos_file_number' => $texas_sos_file_number,
+                'file_number' => $file_number,
                 'message' => $ex->getMessage()
             ]);
             Bugsnag::notifyException($ex);

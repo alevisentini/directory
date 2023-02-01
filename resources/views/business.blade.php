@@ -37,7 +37,7 @@
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
             <div class="second-filter-container">
-                <div class="slider">
+                <div class="sub-container">
                         <div><label>Texas file number</label></div>
                     <div>
 
@@ -48,6 +48,13 @@
                      <span id="rangeValue"><span></span></span>
                     </div>
                 </div>
+                <div class="sub-container">
+                    <div><label>File number</label></div>
+
+                    <input type="checkbox" name="file_number" value="1"> File 1<br>
+                    <input type="checkbox" name="file_number" value="2"> File 2<br>
+                    <input type="checkbox" name="file_number" value="3"> File 3<br>
+                </div>
             </div>
 
         </form>
@@ -57,7 +64,7 @@
             <span>companies</span>
         </div>
 
-        @forelse($businesses as $business)
+    @forelse($businesses as $business)
 
             <div class="card-container">
                 <div class="card-header">
@@ -126,6 +133,15 @@
                         </div>
                         <div class="card-body-description-subtitle">
                             <label>{{$business['texas_sos_file_number']}}</label>
+                        </div>
+                    </div>
+
+                    <div class="card-body-highlights">
+                        <div class="card-body-description-title">
+                            <label>File number</label>
+                        </div>
+                        <div class="card-body-description-subtitle">
+                            <label>{{$business['file_number']}}</label>
                         </div>
                     </div>
                 </div>
