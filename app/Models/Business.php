@@ -69,7 +69,7 @@ class Business extends Model
 
     public function state()
     {
-        return $this->belongsTo(States::class);
+        return $this->belongsTo(State::class);
     }
 
 
