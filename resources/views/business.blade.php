@@ -5,10 +5,8 @@
             <div class="filter-container">
                 <div class="form-group col-3">
                     <div><label>Name</label></div>
-                    <div>
-                        <input type="text" name="name" id="name" class="form-control typeahead ui-autocomplete-input" value="{{ Request::get('name') }}"
-                               placeholder="Type name..." autocomplete="off" />
-                    </div>
+                    <div><input type="text" name="name" id="name" class="form-control typeahead ui-autocomplete-input" value="{{ Request::get('name') }}"
+                               placeholder="Enter name"></div>
                 </div>
 
                 <div class="form-group col-3">
@@ -135,18 +133,6 @@
 
     $(document).ready(function() {
         $('.select2').select2();
-    });
-
-    var path = "{{ url('/action') }}";
-
-    $('#name').typeahead({
-
-        source: function(query, process){
-            return $.get(path, {query:query}, function(data){
-                return process(data);
-            });
-        }
-
     });
 
 </script>

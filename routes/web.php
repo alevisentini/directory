@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BusinessController;
-use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AutocompleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +20,6 @@ use App\Http\Controllers\AutocompleteController;
 /*DB::listen(function ($query) {
     var_dump($query->sql);
 });*/
-
-//Route::get('/', [BusinessController::class, 'index']) -> name('business');
-Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
 
 Route::controller(BusinessController::class)->group(function () {
     Route::get('/', 'index')->name('business');
