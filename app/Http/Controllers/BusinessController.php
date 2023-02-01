@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use App\Models\Status;
+use App\Models\Type;
+use App\Models\Activity;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use Exception;
@@ -18,44 +21,32 @@ class BusinessController extends Controller
     public function index(Request $request)
     {
         $name = $request->get('name');
-        $foreign_legal_name = $request->get('foreign_legal_name');
-        $fictitious_name = $request->get('fictitious_name');
+        $state_id = $request->get('state_id');
+        $type_id = $request->get('type_id');
         $status_id = $request->get('status_id');
-        $texas_sos_file_number = $request->get('texas_sos_file_number');
-        $file_number = $request->get('file_number');
+        $activity_id = $request->get('activity_id');
 
         try {
-            $businesses = Business::with('status')->filter($request)->orderBy('id', 'ASC')
-                ->paginate(10);
+            $businesses = Business::with('status')->with('activity')->with('type')->with('state')->filter($request)->orderBy('name', 'ASC')
+                ->paginate(5);
             return view('business', [
                 'businesses' => $businesses,
-                'statuses' => Status::pluck('name', 'id')
+                'statuses' => Status::pluck('name', 'id'),
+                'types' => Type::pluck('name', 'id'),
+                'activities' => Activity::pluck('name', 'id'),
+                'states' => State::pluck('name', 'id'),
             ]);
         } catch (Exception $ex) {
             Bugsnag::leaveBreadcrumb('Entity data', 'info', [
                 'name' => $name,
-                'foreign_legal_name' => $foreign_legal_name,
-                'fictitious_name' => $fictitious_name,
+                'state_id' => $state_id,
                 'status_id' => $status_id,
-                'texas_sos_file_number' => $texas_sos_file_number,
-                'file_number' => $file_number,
+                'type_id' => $type_id,
+                'activity_id' => $activity_id,
                 'message' => $ex->getMessage()
             ]);
             Bugsnag::notifyException($ex);
         }
-    }
-
-    function action(Request $request)
-    {
-        $data = $request->all();
-
-        $query = $data['query'];
-
-        $filter_data = Business::select('name')
-            ->where('name', 'LIKE', '%'.$query.'%')
-            ->get();
-
-        return response()->json($filter_data);
     }
 
     /**

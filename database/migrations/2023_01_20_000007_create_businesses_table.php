@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('activity_id')->references('id')->on('activities')->nullable();
             $table->foreignId('type_id')->references('id')->on('types')->nullable();
             $table->foreignId('filing_id')->references('id')->on('filings')->nullable();
+            $table->foreignId('state_id')->references('id')->on('states');
             $table->string('name')->unique();
-            $table->string('state')->unique();
             $table->string('file_number')->nullable();
             $table->string('foreign_legal_name')->nullable();
             $table->string('fictitious_name')->nullable();
