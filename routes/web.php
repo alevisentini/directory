@@ -4,9 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BusinessController;
-use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AutocompleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +21,6 @@ use App\Http\Controllers\AutocompleteController;
     var_dump($query->sql);
 });*/
 
-//Route::get('/', [BusinessController::class, 'index']) -> name('business');
-Route::get('/action', [BusinessController::class, 'action'])->name('business.action');
-
 Route::controller(BusinessController::class)->group(function () {
     Route::get('/', 'index')->name('business');
     Route::get('/{id}', 'show')->name('business.show');
@@ -34,8 +29,10 @@ Route::controller(BusinessController::class)->group(function () {
     Route::delete('/{id}', 'destroy')->name('business.destroy');
 });
 
-Route::get('/contact', [ContactController::class, 'index']) -> name('contact');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/contact', 'index')->name('contact');
+    Route::post('/contact', 'store')->name('contact.store');
+});
 
 Route::get('/profile/{name}', [ProfileController::class, 'index']) -> name('profile');
 

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('activity_id')->references('id')->on('activities')->nullable();
             $table->foreignId('type_id')->references('id')->on('types')->nullable();
             $table->foreignId('filing_id')->references('id')->on('filings')->nullable();
-            $table->string('name');
-            $table->string('state');
+            $table->string('name')->unique();
+            $table->string('state')->unique();
             $table->string('file_number')->nullable();
             $table->string('foreign_legal_name')->nullable();
             $table->string('fictitious_name')->nullable();
@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('duration_expiration')->nullable();
             $table->string('formation_date')->nullable();
             $table->date('statement_of_info_due_date')->nullable();
-            $table->string('activity')->nullable();
             $table->string('formed_in')->nullable();
             $table->string('standing_sos')->nullable();
             $table->date('effective_sos_registration_date')->nullable();
